@@ -29,7 +29,7 @@ window.UIOverlay = (function () {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
         </svg>
       </div>
-      <span class="mai-pill-title">Meta AI Animator</span>
+      <span class="mai-pill-title">MetaMotion Pro</span>
       <span class="mai-pill-badge" id="mai-pill-count">0</span>
     `;
     (root || document.body).appendChild(pill);
@@ -43,15 +43,15 @@ window.UIOverlay = (function () {
     modal.innerHTML = `
       <!-- Header -->
       <div class="mai-header">
-        <div class="mai-header-title-box">
+        <div class="mai-header-brand">
           <div class="mai-header-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
             </svg>
           </div>
           <div>
-            <h3 class="mai-header-title">Meta AI Bulk Animator</h3>
-            <p class="mai-header-subtitle">WhatsApp Web Automation Suite</p>
+            <h3 class="mai-header-title">MetaMotion Pro</h3>
+            <p class="mai-header-subtitle">WhatsApp AI Bulk Video Studio</p>
           </div>
         </div>
         <div class="mai-header-actions">

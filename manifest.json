@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Meta AI WhatsApp Bulk Video Animator",
+  "name": "MetaMotion Pro - WhatsApp Bulk AI Video Studio",
   "version": "3.2.4",
-  "description": "Automate bulk image-to-video generation using Meta AI inside WhatsApp Web, with direct backend client injection, auto-captioning, and instant downloads.",
+  "description": "Transform photos into AI videos in bulk with Meta AI in WhatsApp Web. Features sequential prompt matching, native media caption injection, and instant MP4 downloads.",
   "permissions": [
     "storage",
     "downloads",
@@ -15,7 +15,7 @@
   ],
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "Meta AI WhatsApp Animator",
+    "default_title": "MetaMotion Pro - WhatsApp AI Video Studio",
     "default_icon": {
       "16": "icons/icon-16.png",
       "48": "icons/icon-48.png",
