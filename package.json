@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@wppconnect/wa-js": "^4.6.0"
+  }
+}

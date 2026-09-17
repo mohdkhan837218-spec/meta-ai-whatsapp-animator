@@ -1,0 +1,163 @@
+/* Popup Styles */
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 320px;
+  background: #111B21;
+  color: #E9EDEF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+}
+
+.mai-popup-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mai-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mai-popup-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 50%, #7B2CBF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 210, 255, 0.4);
+}
+
+.mai-popup-title-box h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.mai-popup-title-box span {
+  font-size: 11px;
+  color: #8696A0;
+}
+
+.mai-popup-card {
+  background: #202C33;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mai-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.mai-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F59E0B;
+}
+
+.mai-status-dot.active {
+  background: #25D366;
+  box-shadow: 0 0 8px #25D366;
+}
+
+.mai-chat-info {
+  font-size: 11.5px;
+  color: #8696A0;
+}
+
+.mai-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mai-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mai-btn-green {
+  background: #25D366;
+  color: #111B21;
+}
+
+.mai-btn-green:hover {
+  background: #1EBE5D;
+}
+
+.mai-btn-dark {
+  background: rgba(255, 255, 255, 0.08);
+  color: #E9EDEF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mai-btn-dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.mai-popup-instructions {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mai-instruction-item {
+  font-size: 11.5px;
+  color: #8696A0;
+  line-height: 1.4;
+}
+
+.mai-instruction-item b {
+  color: #E9EDEF;
+}
+
+.mai-instruction-item code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1px 4px;
+  border-radius: 4px;
+  color: #00D2FF;
+}
+
+.mai-popup-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10.5px;
+  color: #8696A0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+
+.mai-version {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}

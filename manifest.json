@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "Meta AI WhatsApp Bulk Video Animator",
+  "version": "3.2.4",
+  "description": "Automate bulk image-to-video generation using Meta AI inside WhatsApp Web, with direct backend client injection, auto-captioning, and instant downloads.",
+  "permissions": [
+    "storage",
+    "downloads",
+    "tabs",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "*://web.whatsapp.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Meta AI WhatsApp Animator",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://web.whatsapp.com/*"
+      ],
+      "js": [
+        "content/injected-bridge.js"
+      ],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "*://web.whatsapp.com/*"
+      ],
+      "css": [
+        "styles/overlay.css"
+      ],
+      "js": [
+        "content/whatsapp-dom.js",
+        "content/queue-manager.js",
+        "content/ui-overlay.js",
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*",
+        "styles/*",
+        "content/*"
+      ],
+      "matches": [
+        "*://web.whatsapp.com/*"
+      ]
+    }
+  ]
+}

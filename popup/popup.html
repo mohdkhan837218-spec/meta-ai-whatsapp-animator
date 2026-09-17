@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta AI WhatsApp Animator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="mai-popup-container">
+    <!-- Header -->
+    <div class="mai-popup-header">
+      <div class="mai-popup-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+        </svg>
+      </div>
+      <div class="mai-popup-title-box">
+        <h2>Meta AI Animator</h2>
+        <span>Bulk Video Generator</span>
+      </div>
+    </div>
+
+    <!-- Status Card -->
+    <div class="mai-popup-card">
+      <div class="mai-status-row">
+        <span class="mai-status-dot" id="mai-status-dot"></span>
+        <span class="mai-status-text" id="mai-status-text">Detecting WhatsApp Web...</span>
+      </div>
+      <div class="mai-chat-info" id="mai-chat-info">
+        Checking active chat...
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mai-popup-actions">
+      <button class="mai-action-btn mai-btn-green" id="mai-btn-open-panel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+        </svg>
+        Open Animator Dashboard
+      </button>
+
+      <button class="mai-action-btn mai-btn-dark" id="mai-btn-switch-meta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+        </svg>
+        Switch to Meta AI Chat
+      </button>
+    </div>
+
+    <!-- Features / Instructions -->
+    <div class="mai-popup-instructions">
+      <div class="mai-instruction-item">
+        <b>1. Drag & Drop:</b> Add multiple images into the in-page dashboard.
+      </div>
+      <div class="mai-instruction-item">
+        <b>2. Prompt:</b> Set prompt (default: <code>animate</code>).
+      </div>
+      <div class="mai-instruction-item">
+        <b>3. Auto-Save:</b> Generated videos are downloaded automatically!
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mai-popup-footer">
+      <span>Ready for WhatsApp Web</span>
+      <span class="mai-version">v1.0.0</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+/* Meta AI WhatsApp Bulk Video Animator - Modern Glassmorphic UI */
+
+:root {
+  --mai-primary: #25D366;
+  --mai-primary-hover: #1EBE5D;
+  --mai-secondary: #00D2FF;
+  --mai-accent-gradient: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 50%, #7B2CBF 100%);
+  --mai-bg-glass: rgba(18, 27, 34, 0.94);
+  --mai-border: rgba(255, 255, 255, 0.12);
+  --mai-border-focus: rgba(0, 210, 255, 0.5);
+  --mai-text-main: #E9EDEF;
+  --mai-text-muted: #8696A0;
+  --mai-card-bg: rgba(32, 44, 51, 0.85);
+  --mai-card-hover: rgba(42, 57, 66, 0.95);
+  --mai-danger: #EF4444;
+  --mai-warning: #F59E0B;
+  --mai-success: #10B981;
+}
+
+/* Floating Launcher Pill */
+#mai-launcher-pill {
+  position: fixed;
+  bottom: 95px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--mai-bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--mai-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  padding: 10px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--mai-text-main);
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#mai-launcher-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--mai-secondary);
+  box-shadow: 0 12px 35px rgba(0, 210, 255, 0.25);
+}
+
+#mai-launcher-pill .mai-pill-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--mai-accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+  animation: mai-pulse 3s infinite;
+}
+
+#mai-launcher-pill .mai-pill-title {
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.2px;
+}
+
+#mai-launcher-pill .mai-pill-badge {
+  background: var(--mai-primary);
+  color: #111B21;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+@keyframes mai-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+/* Main Dashboard Modal */
+#mai-panel-modal {
+  position: fixed;
+  bottom: 160px;
+  right: 24px;
+  width: 580px;
+  max-width: calc(100vw - 48px);
+  height: 640px;
+  max-height: calc(100vh - 110px);
+  background: var(--mai-bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--mai-border);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+  z-index: 999998;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--mai-text-main);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#mai-panel-modal.mai-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.97);
+}
+
+/* Modal Header */
+.mai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--mai-border);
+}
+
+.mai-header-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mai-header-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--mai-accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 210, 255, 0.4);
+}
+
+.mai-header-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mai-header-subtitle {
+  font-size: 11.5px;
+  color: var(--mai-text-muted);
+  margin: 0;
+}
+
+.mai-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mai-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--mai-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mai-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--mai-text-main);
+}
+
+/* Navigation Tabs */
+.mai-nav-tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--mai-border);
+  padding: 0 16px;
+}
+
+.mai-nav-tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mai-text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mai-nav-tab:hover {
+  color: var(--mai-text-main);
+}
+
+.mai-nav-tab.active {
+  color: var(--mai-secondary);
+  border-bottom-color: var(--mai-secondary);
+}
+
+/* Body Container */
+.mai-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mai-body::-webkit-scrollbar {
+  width: 6px;
+}
+.mai-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Drag & Drop Zone */
+.mai-dropzone {
+  border: 2px dashed rgba(0, 210, 255, 0.35);
+  border-radius: 14px;
+  background: rgba(0, 210, 255, 0.04);
+  padding: 22px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.mai-dropzone:hover, .mai-dropzone.mai-dragover {
+  border-color: var(--mai-secondary);
+  background: rgba(0, 210, 255, 0.09);
+  transform: scale(1.005);
+}
+
+.mai-dropzone-icon {
+  font-size: 26px;
+  color: var(--mai-secondary);
+}
+
+.mai-dropzone-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.mai-dropzone-subtitle {
+  font-size: 11.5px;
+  color: var(--mai-text-muted);
+}
+
+/* Prompt Setup Area */
+.mai-section-box {
+  background: var(--mai-card-bg);
+  border: 1px solid var(--mai-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.mai-input-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mai-text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mai-text-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(11, 20, 26, 0.85);
+  border: 1px solid var(--mai-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  color: var(--mai-text-main);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.mai-text-input:focus {
+  border-color: var(--mai-border-focus);
+}
+
+.mai-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.mai-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--mai-border);
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  color: var(--mai-text-main);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mai-chip:hover {
+  background: rgba(0, 210, 255, 0.18);
+  border-color: var(--mai-secondary);
+}
+
+/* Action Control Bar */
+.mai-action-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mai-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.mai-btn-primary {
+  background: var(--mai-primary);
+  color: #111B21;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+}
+
+.mai-btn-primary:hover:not(:disabled) {
+  background: var(--mai-primary-hover);
+  transform: translateY(-1px);
+}
+
+.mai-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--mai-text-main);
+  border: 1px solid var(--mai-border);
+}
+
+.mai-btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mai-btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.mai-btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.mai-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Stats Summary Row */
+.mai-stats-row {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.mai-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--mai-text-muted);
+}
+
+.mai-stat-item b {
+  color: #FFFFFF;
+}
+
+/* Queue List */
+.mai-queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mai-queue-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--mai-card-bg);
+  border: 1px solid var(--mai-border);
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.2s;
+}
+
+.mai-queue-item.active {
+  border-color: var(--mai-secondary);
+  background: rgba(0, 210, 255, 0.06);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
+}
+
+.mai-item-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #111B21;
+  border: 1px solid var(--mai-border);
+}
+
+.mai-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mai-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mai-item-prompt-input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: var(--mai-text-main);
+  font-size: 12px;
+  padding: 3px 8px;
+  width: 95%;
+}
+
+.mai-item-prompt-input:focus {
+  border-color: var(--mai-border-focus);
+}
+
+.mai-item-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.mai-status-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+.mai-status-badge.QUEUED { background: rgba(255, 255, 255, 0.1); color: var(--mai-text-muted); }
+.mai-status-badge.UPLOADING { background: rgba(0, 210, 255, 0.2); color: #38BDF8; }
+.mai-status-badge.GENERATING { background: rgba(245, 158, 11, 0.2); color: #FBBF24; animation: mai-fade 1.5s infinite; }
+.mai-status-badge.DOWNLOADING { background: rgba(59, 130, 246, 0.2); color: #60A5FA; }
+.mai-status-badge.COMPLETED { background: rgba(16, 185, 129, 0.2); color: #34D399; }
+.mai-status-badge.FAILED { background: rgba(239, 68, 68, 0.2); color: #F87171; }
+
+@keyframes mai-fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.mai-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Settings Tab Styles */
+.mai-setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.mai-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mai-setting-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mai-text-main);
+}
+
+.mai-setting-desc {
+  font-size: 11.5px;
+  color: var(--mai-text-muted);
+}
+
+/* Terminal Log View */
+.mai-logs-container {
+  background: #0B141A;
+  border: 1px solid var(--mai-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  height: 380px;
+  overflow-y: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mai-log-entry {
+  display: flex;
+  gap: 8px;
+}
+
+.mai-log-time {
+  color: var(--mai-text-muted);
+}
+
+.mai-log-info { color: #38BDF8; }
+.mai-log-warn { color: #FBBF24; }
+.mai-log-error { color: #F87171; }
+
+/* Bulk Prompts & Utility Controls */
+.mai-btn-xs {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--mai-border);
+  border-radius: 6px;
+  color: var(--mai-text-main);
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mai-btn-xs:hover {
+  background: rgba(0, 210, 255, 0.15);
+  border-color: var(--mai-secondary);
+  color: #FFFFFF;
+}
+
+.mai-btn-xs.mai-btn-primary {
+  background: var(--mai-primary);
+  color: #111B21;
+  font-weight: 600;
+  border-color: var(--mai-primary);
+}
+
+.mai-btn-xs.mai-btn-primary:hover {
+  background: #20BA5A;
+}
+
+.mai-textarea-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(11, 20, 26, 0.9);
+  border: 1px solid var(--mai-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  font-family: inherit;
+  color: var(--mai-text-main);
+  outline: none;
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.4;
+  transition: border-color 0.2s;
+}
+
+.mai-textarea-input:focus {
+  border-color: var(--mai-border-focus);
+}
+
+.mai-badge-pill {
+  background: rgba(0, 210, 255, 0.12);
+  color: var(--mai-secondary);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: 10px;
+  padding: 2px 7px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.mai-select-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(11, 20, 26, 0.85);
+  border: 1px solid var(--mai-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--mai-text-main);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.mai-select-input:focus {
+  border-color: var(--mai-border-focus);
+}
+
+.mai-item-idx-badge {
+  display: inline-block;
+  background: rgba(0, 210, 255, 0.18);
+  color: var(--mai-secondary);
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+  margin-right: 4px;
+}
